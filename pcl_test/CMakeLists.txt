@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+project(PCLtest)
+find_package(PCL 1.4 REQUIRED COMPONENTS common io)
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+add_executable(PCLtest main.cpp)
+target_link_libraries(PCLtest ${PCL_LIBRARIES})
