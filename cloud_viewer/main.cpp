@@ -9,29 +9,29 @@
 
 int user_data;
  
-void viewerOneOff(pcl::visualization::PCLVisualizer& viewer) {
-	viewer.setBackgroundColor(1.0, 0.5, 1.0);   //设置背景颜色
-}
+//void viewerOneOff(pcl::visualization::PCLVisualizer& viewer) {
+//	viewer.setBackgroundColor(1.0, 0.5, 1.0);   //设置背景颜色
+//}
  
 int main() {
-char strfilepath[256] = "../rabbit.pcd";
 
-#if 0
   /// # windows 下 随意
-	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
+//	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
+//
+	char strfilepath[256] = "../rabbit.pcd";
+//	if (-1 == pcl::io::loadPCDFile(strfilepath, *cloud)) {
+//		cout << "error input!" << endl;
+//		return -1;
+//	}
+//
+//	cout << cloud->points.size() << endl;
+//	pcl::visualization::CloudViewer viewer("Cloud Viewer");   //创建viewer对象
+//
+//	viewer.showCloud(cloud);
+//	viewer.runOnVisualizationThreadOnce(viewerOneOff);
+//	system("pause");
+//	return 0;
 
-	if (-1 == pcl::io::loadPCDFile(strfilepath, *cloud)) {
-		cout << "error input!" << endl;
-		return -1;
-	}
-
-	cout << cloud->points.size() << endl;
-	pcl::visualization::CloudViewer viewer("Cloud Viewer");   //创建viewer对象
-
-	viewer.showCloud(cloud);
-	viewer.runOnVisualizationThreadOnce(viewerOneOff);
-	system("pause");
-#else
     /// mac下仍然可以运行
     // 加载点云
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
@@ -68,7 +68,6 @@ char strfilepath[256] = "../rabbit.pcd";
         viewer->spinOnce (100);  // 100毫秒刷新一次
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
-#endif
 
     return 0;
 }
