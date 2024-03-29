@@ -1,0 +1,5 @@
+
+a	cpp:S5421
+"!Global variables should be const.(ÚÎªÄÿÿÿÿÿJ$1b9f8739-7170-4442-a670-c17349555efb
+y	cpp:S5945"2Use "std::string" instead of a C-style char array.(øƒšÔùÿÿÿÿ8å¼Ì‘è1J$202511c9-3cba-4b90-86c0-c091d2e31369
+W	cpp:S59501"6Use "std::make_shared" to construct "std::shared_ptr".(Ë˜ïÇıÿÿÿÿ8“ÒÖ‘è1
