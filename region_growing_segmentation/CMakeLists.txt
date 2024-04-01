@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 project(region_growing_segmentation)
 
-find_package(PCL 1.4 REQUIRED COMPONENTS common io visualization)
+find_package(PCL 1.4 REQUIRED COMPONENTS common io visualization console search features filters segmentation)
 
 link_directories(${PCL_LIBRARY_DIRS})
 

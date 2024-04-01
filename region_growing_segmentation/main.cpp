@@ -107,8 +107,8 @@ int main(int argc, char *argv[])
     reg.setInputCloud(cloud);
     reg.setIndices(indices);
     reg.setInputNormals(normals);
-    reg.setSmoothnessThreshold(3.f / 180.f * M_PI);
-    reg.setCurvatureThreshold(1.0f);
+    reg.setSmoothnessThreshold(SmoothnessThreshold / 180.0 * M_PI);
+    reg.setCurvatureThreshold(CurvatureThreshold);
 
     std::vector<pcl::PointIndices> clusters;
     reg.extract(clusters);
@@ -129,26 +129,20 @@ int main(int argc, char *argv[])
     std::cout << std::endl;
 
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr colored_cloud = reg.getColoredCloud();
-//    pcl::visualization::PCLVisualizer::Ptr viewer(new pcl::visualization::PCLVisualizer ("3D vIewer"));
-//
-//    viewer->setBackgroundColor(0, 0, 0);
-//    viewer->addPointCloud<pcl::PointXYZRGB>(colored_cloud, "sample cloud");
-//    viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "sample cloud");
-//    viewer->addCoordinateSystem (1.0);
-//    viewer->initCameraParameters ();
-//
-//    PrintMemoryInfo();
-//    /// 主循环
-//    while (!viewer->wasStopped ()) {
-//        viewer->spinOnce (100);  // 100毫秒刷新一次
-//        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-//    }
+    pcl::visualization::PCLVisualizer::Ptr viewer(new pcl::visualization::PCLVisualizer ("点云分割"));
 
-	pcl::visualization::CloudViewer viewer ("���������ָ��");
-	viewer.showCloud(colored_cloud);
-	while (!viewer.wasStopped ())
-	{
-	}//���п��ӻ�
+    viewer->setBackgroundColor(0, 0, 0);
+    viewer->addPointCloud<pcl::PointXYZRGB>(colored_cloud, "sample cloud");
+    viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "sample cloud");
+    viewer->addCoordinateSystem (1.0);
+    viewer->initCameraParameters ();
+
+    PrintMemoryInfo();
+    /// 主循环
+    while (!viewer->wasStopped ()) {
+        viewer->spinOnce (100);  // 100毫秒刷新一次
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
 
   }
 
